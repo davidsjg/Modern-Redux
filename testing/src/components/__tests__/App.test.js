@@ -20,7 +20,7 @@ it("shows a comment box", () => {
 
   //params for exepct below
   //subject to test    how we are trying to inspect subject(toContain - matcher)    what we want our subject value to be, ideal case
-  expect(div.innerHTML).toContain("Comment Box");
+  //   expect(div.innerHTML).toContain("Comment Box");
 
   //we want to know existence of comment box, not its internal workings (or innerHTML)
 

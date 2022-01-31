@@ -2,13 +2,26 @@ import React from "react";
 import { mount } from "enzyme";
 
 import CommentBox from "components/CommentBox";
+import Root from "Root";
 
 //fullDOM test instead of shallow just to show how to do it
+
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import reducers from "reducers";
 
 let wrapped;
 
 beforeEach(() => {
-  wrapped = mount(<CommentBox />);
+  wrapped = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+  );
+  //this works, but not best way.  Would have to put this everywhere
+  // <Provider store={createStore(reducers, {})}>
+  //   <CommentBox />
+  // </Provider>
 });
 
 afterEach(() => {

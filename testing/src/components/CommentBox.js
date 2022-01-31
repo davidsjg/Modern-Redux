@@ -1,5 +1,6 @@
-import { render } from "enzyme";
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "actions";
 
 class CommentBox extends Component {
   state = { comment: "" };
@@ -12,6 +13,7 @@ class CommentBox extends Component {
     e.preventDefault();
 
     //call an action creator and save comment added by user = future redux
+    this.props.saveComment(this.state.comment);
 
     //empty out text area
     this.setState({ comment: "" });
@@ -30,4 +32,5 @@ class CommentBox extends Component {
   }
 }
 
-export default CommentBox;
+//first param is mapStateToProps, nothin so null
+export default connect(null, actions)(CommentBox);

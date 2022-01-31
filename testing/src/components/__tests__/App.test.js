@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
-import App from "../App";
-import CommentBox from "../CommentBox";
+import App from "components/App";
+import CommentBox from "components/CommentBox";
+import CommentList from "components/CommentList";
 
 //JSDOM installed with create react app
 //JSDOM library is a javascript code implementation of how the browser works
@@ -27,10 +28,20 @@ it("shows a comment box", () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
+let wrapped;
+
+//before every test, run some common setup logic
+beforeEach(() => {
+  wrapped = shallow(<App />);
+});
+
 //THE ENZYME WAY
 it("shows a comment box", () => {
   //wrapped could be replaced with component
-  const wrapped = shallow(<App />);
 
   expect(wrapped.find(CommentBox).length).toEqual(1);
+});
+
+test("shows a comments list", () => {
+  expect(wrapped.find(CommentList).length).toEqual(1);
 });

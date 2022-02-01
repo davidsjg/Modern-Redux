@@ -37,7 +37,7 @@ test("has a text area and a button", () => {
   //   console.log(wrapped.find("button").length);
 
   expect(wrapped.find("textarea").length).toEqual(1);
-  expect(wrapped.find("button").length).toEqual(1);
+  expect(wrapped.find("button").length).toEqual(2);
 });
 
 //describe function used to group together certain sets of tests that have common setup or teardown

@@ -8,9 +8,12 @@ export function saveComment(comment) {
   };
 }
 
-export function fetchComments() {
-  const response = axios.get("http://jsonplaceholder.typicode.com/comments");
+export async function fetchComments() {
+  const response = await axios.get(
+    "http://jsonplaceholder.typicode.com/comments"
+  );
 
+  // console.log(response.data);
   return {
     type: FETCH_COMMENTS,
     payload: response,

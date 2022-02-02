@@ -13,9 +13,11 @@ ReactDOM.render(
   <Root>
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<App />}></Route> */}
-        <Route path="/post" element={<CommentBox />} />
-        <Route exact path="/" element={<CommentList />} />
+        <Route path="/" element={<App />}>
+          <Route index element={<CommentList />} />
+          <Route path="/post" element={<CommentBox />} />
+          <Route exact path="/" element={<CommentList />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </Root>,

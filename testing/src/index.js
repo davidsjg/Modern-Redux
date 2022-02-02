@@ -4,6 +4,8 @@ import Root from "Root";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import App from "components/App";
+import CommentList from "components/CommentList";
+import CommentBox from "components/CommentBox";
 
 ReactDOM.render(
   //                     reducers, initial state
@@ -11,7 +13,9 @@ ReactDOM.render(
   <Root>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        {/* <Route path="/" element={<App />}></Route> */}
+        <Route path="/post" element={<CommentBox />} />
+        <Route exact path="/" element={<CommentList />} />
       </Routes>
     </BrowserRouter>
   </Root>,

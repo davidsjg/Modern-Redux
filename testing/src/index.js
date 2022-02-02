@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Root from "Root";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import App from "components/App";
 
@@ -8,7 +9,11 @@ ReactDOM.render(
   //                     reducers, initial state
 
   <Root>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+      </Routes>
+    </BrowserRouter>
   </Root>,
   document.querySelector("#root")
 );

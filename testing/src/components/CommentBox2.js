@@ -4,14 +4,24 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 import { saveComment } from "actions";
+import { useNavigate } from "react-router-dom";
 
 function CommentBox2() {
   const [comment, setComment] = useState();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const authState = useSelector((state) => state.auth);
 
-  useEffect(() => {}, []);
+  console.log(authState);
+
+  useEffect(() => {
+    if (!authState) {
+      navigate("/");
+    }
+  }, [authState]);
+
+  const navAway = () => {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +29,6 @@ function CommentBox2() {
   };
 
   const handleFetch = () => {
-    // fetchComments();
     dispatch(fetchComments());
   };
 

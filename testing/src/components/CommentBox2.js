@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import { saveComment } from "actions";
 import { useNavigate } from "react-router-dom";
+import requireAuth from "./requireAuth";
 
 function CommentBox2() {
   const [comment, setComment] = useState();
@@ -14,14 +15,6 @@ function CommentBox2() {
   const authState = useSelector((state) => state.auth);
 
   console.log(authState);
-
-  useEffect(() => {
-    if (!authState) {
-      navigate("/");
-    }
-  }, [authState]);
-
-  const navAway = () => {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,4 +44,4 @@ function CommentBox2() {
   );
 }
 
-export default CommentBox2;
+export default requireAuth(CommentBox2);
